@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+        <section>
+          <h1>Convergence</h1>
+          <h3>Of the Broswer and OS</h3>
+          <h4>Nick Desaulniers</h4>
+        </section>
+        <section>
+          <h2>Nick Desaulniers</h2>
+          <p>Open Source Zealot at Mozilla</p>
+          <img src="nick_face.jpg" alt="Head shot"/>
+          <br/>
+          <ul>
+            <li>Organized NSA Protest in San Francisco.</li>
+            <li>Spoke on NPR about how Software Patents are Evil.</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <p>Have you ever looked at your desktop and thought <i>all of this can be done in JavaScript</i>?</p>
+          </section>
+          <section>
+            <p>Is the browser the first application you find yourself launching on boot?</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Trust</h2>
+            <blockquote>Reliance on another person or entity.</blockquote>
+          </section>
+          <section>
+            <p>Can I <i>trust</i> an executable that I've downloaded from the Internet?</p>
+          </section>
+          <section>
+            <p>
+              Can I trust that
+              <a href="http://www.forbes.com/sites/kashmirhill/2013/11/19/brilliant-but-evil-gaming-company-turned-players-computers-into-unwitting-bitcoin-mining-slaves/">
+                this game is not mining bitcoins without my consent
+              </a>
+              ? (Denial of Service)
+            </p>
+          </section>
+          <section>
+            <p>Can I trust that I'm downloading what you say I'm downloading?</p>
+            <img src="meme.jpg" alt="What could possibly go wrong?"/>
+          </section>
+          <section>
+            <img src="classification.png" alt="classifications"/>
+            <p>If your software depends on bundling for distribution, then it
+            is not legitimate software.</p>
+          </section>
+          <section>
+            Can I trust that this executable is not escalating its privileges,
+            and forging packets to NTP servers?
+            <img src="canary.png" alt="canary"/>
+          </section>
+          <section>
+            <h3>Process Isolation</h3>
+            <p>Key design goal of Chrome.</p>
+            <p>
+              Coming to Firefox Nightly.  Try it out
+              <b>File &gt; New e10s Window</b>
+              or set the <i>browser.tabs.remote</i> preference to true in about:config.
+            </p>
+          </section>
+          <section>
+            <p>Trust needs to be revocable when broken.</p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Consent</h2>
+            <blockquote>Agreement or permission to do or allow something.</blockquote>
+            <p class="fragment">Ideally, we want informed consent.</p>
+          </section>
+          <section>
+            <img src="tac.jpg" alt="Terms and Conditions"/>
+            <p>End User License Agreements, Terms and Conditions, and Privacy
+            Policies mean well, but ultimately are
+            <span class="fragment highlight-red">failures</span>.</p>
+          </section>
+          <section>
+            <p>
+            What kind of nefarious things does the OS let my applications do?
+            With great power comes great responsibility.
+            </p>
+            <img src="android_perm.jpg" alt="Android permissions"/>
+          </section>
+          <section>
+            <p>We should be empowering users to provide informed consent.</p>
+            <img src="fxos_perm.png" alt="Firefox OS permissions">
+          </section>
+          <section>
+            <p>Should we allow any application permission to touch the filesystem?</p>
+            <p class="fragment">Should we allow any application to establish connections to hosts other than the one I navigated to?</p>
+          </section>
+          <section>
+            <p>Unixes implement <i>user</i> based permissions.</p>
+            <hr/>
+            <p>HTML5 implements <i>application</i> based permissions.</p>
+          </section>
+          <section>
+            <h3>Hierarchical Protection Rings (today)</h3>
+            <img src="ring3.png" alt="Protection rings today"/>
+          </section>
+          <section>
+            <h3>Hierarchical Protection Rings (tomorrow)</h3>
+            <img src="ring4.png" alt="Protection rings tomorrow"/>
+          </section>
+          <section>
+            <h3>This is a Call</h3>
+            <p>
+              What we're looking for are API's that empower us as developers,
+              but protect users from malice.
+            </p>
+            <img src="http://img1.wikia.nocookie.net/__cb20130119022844/tron/images/e/eb/Tron_Program.png" alt="I fight for the user"/>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Performace</h2>
+            <blockquote>
+              The capabilities of a machine, vehicle, or product, especially
+              when observed under particular conditions.
+            </blockquote>
+          </section>
+          <section>
+            <p><i>Wont this additional layer of abstraction affect performance?</i><p>
+          </section>
+          <section>
+            <p>Why do we have virtual memory?</p>
+            <p class="fragment">Why do we have CPU modes?</p>
+            <p class="fragment">Why do we have pointers?</p>
+          </section>
+          <section>
+            <p>
+              There will always be tradeoffs between additional layers of
+              abstraction and performace.
+            </p>
+            <p>
+              As computing power increases, the disadvantages of additional
+              abstraction decrease.
+            </p>
+          </section>
+          <section>
+            <h3>Competition is Healthy</h3>
+            <p>JavaScript engines have gotten over
+            <a href="http://commondatastorage.googleapis.com/io-2013/presentations/209%20-%20fast-code-is-always-in-fashion.pdf">100x</a> times faster since 2006.</p>
+            <a href="http://arewefastyet.com/">Are we fast yet?</a>
+          </section>
+          <section>
+            <p>My existing C/C++ codebase is pretty fast, can I run that in the browser?</p>
+          </section>
+          <section>
+            <h3>NaCl</h3>
+            <blockquote>
+           Native Client programs cannot directly invoke the native operating system, but must use only interfaces that encapsulate system services securely and portably.
+            </blockquote>
+            <p class="fragment">Very low overhead: 5-10% slowdown.</p>
+          </section>
+          <section>
+            <h3>NaCl</h3>
+            <blockquote>
+            While the operating-system neutrality of Native Client tends to encourage good practices with respect to ISA portability, the burden of building, testing and deploying a program on all supported hardware platforms---currently IA-32, ARM and x86-64---lies with the developer. This arrangement makes it too easy for the developer to fail to support one or more ISAs, and tends to create a barrier for future new ISAs, threatening the portability promise of the Web.
+            </blockquote>
+          </section>
+          <section>
+            <h3>PNaCl</h3>
+            <p>Compile to a subset of LLVM IR which is translated on the client to a NaCl executable.</p>
+            <p class="fragment"><a href="http://lists.cs.uiuc.edu/pipermail/llvmdev/2011-October/043719.html">LLVM IR is a compiler IR [not a VM]</a></p>
+            <p class="fragment">Easy to support if you ship an existing browser engine with Pepper API support, otherwise <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=729481#c60">it requires duplication of lots of undocumented Chrome behavior.</a></p>
+          </section>
+          <section>
+            <p>Indeed JavaScript is a <i>weird</i> language, but most other languages can be <a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">compiled</a> to it.</p>
+            <img src="emscripten.png" alt="Emscripten"/>
+            <p>Swap out LLVM's codegen with our JS codegen!</p>
+          </section>
+          <section>
+            <h3>asm.js</h3>
+            <img src="odin.png" alt="spidermonkey"/>
+            <br/>
+            <a href="http://kripken.github.io/boon/screens/">Banana Bread Triple Demo</a>
+            <br/>
+            <a href="http://www.unrealengine.com/html5/">Unreal Engine 3</a>
+          </section>
+          <section>
+            <p>Without OS support for allocating exectuable memory, it's not possible to have a competive JavaScript engine (no JIT).</p>
+          </section>
+          <section>
+            <h3>asm.js</h3>
+            Works in all browsers.  A subset of JavaScript is still just JavaScript.  Things that work everywhere are great!
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Standards</h2>
+            <blockquote>A level of quality or attainment.</blockquote>
+          </section>
+          <section>
+            <img src="standards.png" alt="The problem with standards"/>
+          </section>
+          <section>
+            <img src="chart.png" alt="html5 test"/>
+          </section>
+          <section>
+            <h3>System Applications Working Group</h3>
+            <p><a href="http://www.w3.org/2012/sysapps/">Most API</a>s are in the Stable draft (Last Call) of W3C standardization process.</p>
+            <ul style="font-size: 12px;">
+              <li><p>Browser API</p></li>
+              <li><p>Bluetooth API</p></li>
+              <li><p>Calendar API</p></li>
+              <li><p>Network Interface API</p></li>
+              <li><p>Media Storage API</p></li>
+              <li><p>Secure Elements API</p></li>
+              <li><p>Device Capabilities API</p></li>
+              <li><p>System Settings API</p></li>
+              <li><p>Idle API</p></li>
+              <li><p>Execution Model</p></li>
+              <li><p>Security Model</p></li>
+              <li><p>Alarm API</p></li>
+              <li><p>Contacts API</p></li>
+              <li><p>Messaging API</p></li>
+              <li><p>Telephony API</p></li>
+              <li><p>Raw Sockets API</p></li>
+              <li><p>Bluetooth API</p></li>
+            </ul>
+          </section>
+          <section>
+            <h3>Developer Tools</h3>
+            <p>The next forefront of competition between browser vendors.</p>
+          </section>
+          <section>
+            <h3>WebApp Runtime</h3>
+            <iframe src="https://youtube.com/embed/dO-l5odB4hM" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" frameborder="0" height="405" width="720"></iframe>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Success</h2>
+            <blockquote>Achievement of intention: the achievement of something planned or attempted.</blockquote>
+          </section>
+          <section>
+            <blockquote>Chromebooks Made Up 20% of US Laptop Sales in 2013, Says NPD</blockquote>
+          </section>
+          <section>
+            <blockquote>Around 390,000 Firefox OS phones shipped last year, according to IDC, a figure it expects to rise to 2.5 million this year.</blockquote>
+          </section>
+          <section>
+            <p>We haven't won yet, but we're showing viability for a novel concept.</p>
+          </section>
+          <section>
+            <h3>Call to Action</h3>
+            <p>What would a computing environment encapsulated within a browser look like?</p>
+          </section>
+        </section>
+        <section>
+          <h2>Thanks</h2>
+          <img src="nick_face.jpg" alt="head shot"/>
+          <p>Nick Desaulniers</p>
+          <p><a href="https://twitter.com/LostOracle">@LostOracle</a> on Twitter</p>
+          <p>\n on irc.mozilla.org</p>
+          <p><a href="https://github.com/nickdesaulniers">nickdesaulniers</a> on GitHub</p>
+          <p><a href="http://nickdesaulniers.github.io/">nickdesaulniers.github.io</a> -&gt; blog</p>
+        </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
